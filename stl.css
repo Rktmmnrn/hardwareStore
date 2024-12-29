@@ -23,10 +23,6 @@ a {
   text-transform: capitalize;
 }
 
-a:hover {
-  color: #F66523;
-}
-
 h1 {
   text-transform: capitalize;
   font-weight: 600;
@@ -84,6 +80,11 @@ p {
   background-color: #F66523;
 }
 
+.btn:hover {
+  transition: 200ms ease;
+  box-shadow: 0px 0px 5px 1px #F66523;
+}
+
 header {
   z-index: 10;
   color: white;
@@ -99,15 +100,53 @@ header {
   align-items: center;
   margin: 26px 40px;
 }
-.head-wrapper nav {
-  display: none;
-  gap: 30px;
+.head-wrapper .top-menu {
+  display: flex;
+  cursor: pointer;
+  padding: 10px;
+  width: 20px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
-.head-wrapper nav a {
+.head-wrapper .top-menu .divmenu {
+  width: 100%;
+  border-top: 1px solid white;
+}
+.head-wrapper .top-menu.change {
+  padding: 8px 0;
+  transition: 200ms ease;
+}
+.head-wrapper .nav {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  top: 88px;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: start;
+  padding-top: 50px;
+  background-color: #202447;
+  transform: translateY(100%);
+}
+.head-wrapper .nav a {
+  padding: 15px 0;
   color: inherit;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.head-wrapper nav a:hover {
-  color: #F66523;
+.head-wrapper .nav a:hover {
+  transition: 200ms ease;
+  color: #202447;
+  background-color: white;
+}
+.head-wrapper .nav.active {
+  transform: translateY(0%);
+  transition: 200ms ease;
 }
 .head-wrapper .nav-right {
   display: flex;
@@ -147,6 +186,9 @@ header {
   display: grid;
   margin: 130px 40px;
 }
+.product h5 {
+  text-align: center;
+}
 
 .prd-wrapper {
   display: grid;
@@ -168,9 +210,19 @@ header {
   border: 1px solid #D2D2D7;
 }
 .product figure img {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
+  cursor: pointer;
+}
+.product figure img:hover {
+  transition: 200ms ease;
+  scale: 1.2;
+}
+
+.product figure:hover {
+  transition: 200ms ease;
+  box-shadow: 0px 0px 5px 0px #202447;
 }
 
 .popularPrd {
@@ -217,11 +269,13 @@ header {
   height: 300px;
 }
 .prdcts-wrapper span {
-  cursor: pointer;
-  font-size: 1em;
   color: #D2D2D7;
 }
-.prdcts-wrapper span:hover {
+.prdcts-wrapper .stars {
+  cursor: pointer;
+  font-size: 1em;
+}
+.prdcts-wrapper .stars:hover {
   color: yellow;
 }
 
@@ -229,6 +283,7 @@ header {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .prdcts-wrapper > div {
@@ -255,10 +310,22 @@ header {
   justify-content: space-between;
 }
 .avis > div:first-child span {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  clip-path: circle(30%);
   cursor: pointer;
-  margin: 0 40px;
+  margin: 0 30px;
+  padding: 10px;
   font-size: 3.5em;
   font-weight: 300;
+}
+.avis > div:first-child span:hover {
+  background-color: white;
+  color: #202447;
+  transition: 300ms ease;
 }
 
 .avistxt {
@@ -266,6 +333,8 @@ header {
   display: flex;
   width: 100%;
   gap: 20px;
+  padding: 0 40px;
+  scroll-behavior: smooth;
 }
 .avistxt-wrapper {
   min-width: 300px;
@@ -285,9 +354,18 @@ header {
 }
 .avistxt-wrapper .txt span {
   font-size: 50px;
-  line-height: 120px;
   display: flex;
   font-weight: 700;
+}
+.avistxt-wrapper .txt > span:first-child {
+  transform: translateY(-15%);
+}
+.avistxt-wrapper .txt > span:last-child {
+  transform: translateY(25%);
+}
+
+.avistxt-wrapper:active {
+  opacity: 40%;
 }
 
 .sold {
@@ -563,6 +641,12 @@ footer > p {
   .avistxt-wrapper {
     min-width: 450px;
   }
+  .avistxt-wrapper .txt > span:first-child {
+    transform: translateY(-20%);
+  }
+  .avistxt-wrapper .txt > span:last-child {
+    transform: translateY(60%);
+  }
 }
 @media (min-width: 720px) {
   h1 {
@@ -602,10 +686,33 @@ footer > p {
     align-items: center;
     margin: 26px 60px;
   }
-  .head-wrapper nav {
+  .head-wrapper .top-menu {
+    display: none;
+  }
+  .head-wrapper .nav {
+    width: auto;
+    height: auto;
+    position: relative;
     margin: 0 20px;
+    padding: 0;
+    top: 0;
     display: flex;
+    flex-direction: row;
     gap: 30px;
+    transform: none;
+  }
+  .head-wrapper .nav a {
+    padding: 0;
+    color: inherit;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .head-wrapper .nav a:hover {
+    transition: 0s;
+    color: #F66523;
+    background-color: transparent;
   }
   .head-wrapper .nav-right {
     display: flex;
@@ -658,6 +765,7 @@ footer > p {
   }
   .avistxt {
     gap: 60px;
+    padding: 0 60px;
   }
   .avistxt-wrapper {
     min-width: 550px;
@@ -669,6 +777,12 @@ footer > p {
   .avistxt-wrapper .txt span {
     font-size: 90px;
     line-height: 135px;
+  }
+  .avistxt-wrapper .txt > span:first-child {
+    transform: translateY(-30%);
+  }
+  .avistxt-wrapper .txt > span:last-child {
+    transform: translateY(25%);
   }
   .sold-sale {
     grid-template-columns: repeat(2, 1fr);

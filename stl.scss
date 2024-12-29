@@ -21,9 +21,9 @@ a {
   text-decoration: none;
   text-transform: capitalize;
 }
-a:hover {
-  color: #F66523;
-}
+// a:hover {
+//   color: #F66523;
+// }
 
 // phone
 h1 {
@@ -76,6 +76,10 @@ p {
   padding: 16px 32px;
   background-color: #F66523;
 }
+.btn:hover {
+  transition: 200ms ease;
+  box-shadow: 0px 0px 5px 1px #F66523;
+}
 
 header {
   z-index: 10;
@@ -90,15 +94,53 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: 26px 40px;
-  nav {
-    display: none;
-    gap: 30px;
+  .top-menu {
+    display: flex;
+    cursor: pointer;
+    padding: 10px;
+    width: 20px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    .divmenu {
+      width: 100%;
+      border-top: 1px solid white;
+    }
+  }
+  .top-menu.change {
+    padding: 8px 0;
+    transition: 200ms ease;
+  }
+  .nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    top: 88px;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+    padding-top: 50px;
+    background-color: #202447;
+    transform: translateY(100%);
     a {
+      padding: 15px 0;
       color: inherit;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     a:hover {
-      color: #F66523;
+      transition: 200ms ease;
+      color: #202447;
+      background-color: white;
     }
+  }
+  .nav.active {
+    transform: translateY(0%);
+    transition: 200ms ease;
   }
   .nav-right {
     display: flex;
@@ -137,6 +179,9 @@ header {
 .product {
   display: grid;
   margin: 130px 40px;
+  h5 {
+    text-align: center;
+  }
 }
 .prd-wrapper {
   display: grid;
@@ -156,10 +201,19 @@ header {
   height: 200px;
   border: 1px solid #D2D2D7;
   img {
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
     height: 100%;
+    cursor: pointer;
   }
+  img:hover {
+    transition: 200ms ease;
+    scale: 1.2;
+  }
+}
+.product figure:hover {
+  transition: 200ms ease;
+  box-shadow: 0px 0px 5px 0px #202447;
 }
 
 .popularPrd {
@@ -205,11 +259,13 @@ header {
     height: 300px;
   }
   span {
-    cursor: pointer;
-    font-size: 1em;
     color: #D2D2D7;
   }
-  span:hover {
+  .stars {
+    cursor: pointer;
+    font-size: 1em;
+  }
+  .stars:hover {
     color: yellow;
   }
 }
@@ -217,6 +273,7 @@ header {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 .prdcts-wrapper>div {
   display: flex;
@@ -240,10 +297,22 @@ header {
   display: flex;
   justify-content: space-between;
   span {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    clip-path: circle(30%);
     cursor: pointer;
-    margin: 0 40px;
+    margin: 0 30px;
+    padding: 10px;
     font-size: 3.5em;
     font-weight: 300;
+  }
+  span:hover {
+    background-color: white;
+    color: #202447;
+    transition: 300ms ease;
   }
 }
 .avistxt {
@@ -251,6 +320,8 @@ header {
   display: flex;
   width: 100%;
   gap: 20px;
+  padding: 0 40px;
+  scroll-behavior: smooth;
   &-wrapper {
     min-width: 300px;
     display: flex;
@@ -271,11 +342,19 @@ header {
     margin: 10px 0;
     span {
       font-size: 50px;
-      line-height: 120px;
       display: flex;
       font-weight: 700;
     }
+    >span:first-child {
+      transform: translateY(-15%);
+    }
+    >span:last-child {
+      transform: translateY(25%);
+    }
   }
+}
+.avistxt-wrapper:active {
+  opacity: 40%;
 }
 
 .sold {
@@ -552,6 +631,16 @@ footer {
       min-width: 450px;
     }
   }
+  .avistxt-wrapper {
+    .txt {
+      >span:first-child {
+        transform: translateY(-20%);
+      }
+      >span:last-child {
+        transform: translateY(60%);
+      }
+    }
+  }
 }
 
 // tablette
@@ -593,10 +682,33 @@ footer {
     justify-content: space-between;
     align-items: center;
     margin: 26px 60px;
-    nav {
+    .top-menu {
+      display: none;
+    }
+    .nav {
+      width: auto;
+      height: auto;
+      position: relative;
       margin: 0 20px;
+      padding: 0;
+      top: 0;
       display: flex;
+      flex-direction: row;
       gap: 30px;
+      transform: none;
+      a {
+        padding: 0;
+        color: inherit;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      a:hover {
+        transition: 0s;
+        color: #F66523;
+        background-color: transparent;
+      }
     }
     .nav-right {
       display: flex;
@@ -661,6 +773,7 @@ footer {
   }
   .avistxt {
     gap: 60px;
+    padding: 0 60px;
     &-wrapper {
       min-width: 550px;
       gap: 10px;
@@ -672,6 +785,12 @@ footer {
       span {
         font-size: 90px;
         line-height: 135px;
+      }
+      >span:first-child {
+        transform: translateY(-30%);
+      }
+      >span:last-child {
+        transform: translateY(25%);
       }
     }
   }
