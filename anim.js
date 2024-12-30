@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   console.log(window.innerWidth); // largeur de l'écran
-  var widthContain = avistxt.clientWidth/3;
+  var widthContain = avistxt.clientWidth; //largeur de l'ecran actuel
   console.log(widthContain);
 
   btnAvisLeft.addEventListener('click', () => {

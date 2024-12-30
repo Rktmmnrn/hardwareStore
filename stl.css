@@ -263,6 +263,10 @@ header {
   scale: 1.3;
   transition: 200ms ease;
 }
+.prdcts-wrapper .img-wrapper p {
+  background-color: red;
+  color: white;
+}
 .prdcts-wrapper figure {
   position: relative;
   width: 100%;
@@ -329,7 +333,7 @@ header {
 }
 
 .avistxt {
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   width: 100%;
   gap: 20px;
@@ -439,6 +443,7 @@ header {
 }
 .spons div img {
   object-fit: contain;
+  width: 150px;
 }
 
 .fix {
