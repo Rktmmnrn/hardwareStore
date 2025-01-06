@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const avistxt = document.querySelector('.avistxt');
   const btnAvisLeft = document.querySelector('.btnleft');
   const btnAvisRight = document.querySelector('.btnright');
+  const spons = document.querySelector('.spons');
 
   menutop.addEventListener('click', () => {
     if (nav.classList.contains('active')) {
@@ -37,4 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('button right clicked...');
     avistxt.scrollTo({left: widthContain});
   })
+
+  function scrolauto() {
+    setInterval(() => {
+      spons.scrollTo({left: spons.clientWidth});
+      console.log('interval');
+    }, 1000);
+    
+  }
 })
