@@ -100,9 +100,6 @@ header {
   align-items: center;
   margin: 26px 40px;
 }
-.head-wrapper .logo {
-  margin: 0 20px;
-}
 .head-wrapper .top-menu.change {
   padding: 8px 0;
   transition: 200ms ease;
@@ -729,7 +726,11 @@ footer > p {
   .head-wrapper .top-menu {
     display: none;
   }
-  .head-wrapper .nav {
+  .head-wrapper .nav-right {
+    display: flex;
+    gap: 20px;
+  }
+  .nav {
     width: auto;
     height: auto;
     position: relative;
@@ -741,7 +742,7 @@ footer > p {
     gap: 30px;
     transform: none;
   }
-  .head-wrapper .nav a {
+  .nav a {
     padding: 0;
     color: inherit;
     width: 100%;
@@ -749,14 +750,10 @@ footer > p {
     align-items: center;
     justify-content: center;
   }
-  .head-wrapper .nav a:hover {
+  .nav a:hover {
     transition: 0s;
     color: #F66523;
     background-color: transparent;
-  }
-  .head-wrapper .nav-right {
-    display: flex;
-    gap: 30px;
   }
   .hero {
     align-items: center;
@@ -907,6 +904,9 @@ footer > p {
   }
   .head-wrapper nav {
     gap: 60px;
+  }
+  .head-wrapper .nav-right {
+    gap: 30px;
   }
   .hero {
     align-items: center;
