@@ -561,13 +561,13 @@ footer > p {
   flex-direction: column;
   margin: 20px 40px;
 }
-.news input {
-  padding: 20px;
-  width: 100%;
-}
 .news form {
   gap: 10px;
   display: flex;
+}
+.news input {
+  padding: 16px 32px;
+  width: 100%;
 }
 
 .last {

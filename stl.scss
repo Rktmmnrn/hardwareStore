@@ -541,13 +541,13 @@ footer {
     flex-direction: column;
     margin: 20px 40px;
   }
-  input {
-    padding: 20px;
-    width: 100%;
-  }
   form {
     gap: 10px;
     display: flex;
+  }
+  input {
+    padding: 16px 32px;
+    width: 100%;
   }
 }
 .last {
